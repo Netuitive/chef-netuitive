@@ -17,50 +17,12 @@ We will attempt to support as many linux distributions as possible and are hopin
 
 ## Attributes
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>node['netuitive']['version']</tt></td>
-    <td>string</td>
-    <td>The version of the agent to install</td>
-    <td><tt>'0.2.3-70'</tt></td>
-  </tr>
-  <tr>
-    <td><tt>node['netuitive']['repo']['urls']</tt></td>
-    <td>Hash</td>
-    <td>A hash of platform specific repo urls</td>
-    <td><tt>{
-      'debian' => 'https://repos.app.netuitive.com/deb/',
-      'rhel' => 'https://repos.app.netuitive.com/rpm/noarch'
-    }
-    </tt></td>
-  </tr>
-  <tr>
-    <td><tt>node['netuitive']['repo']['keys']</tt></td>
-    <td>Hash</td>
-    <td>A hash of platform specific repo gpg key locations</td>
-    <td><tt>{
-      'debian' => 'https://repos.app.netuitive.com/netuitive.gpg',
-      'rhel' => 'https://repos.app.netuitive.com/RPM-GPG-KEY-netuitive'
-    }
-    </tt></td>
-  </tr>
-  <tr>
-    <td><tt>node['netuitive']['repo']['components']</tt></td>
-    <td>Hash</td>
-    <td>A hash of platform specific compnents</td>
-    <td><tt>{
-      'debian' => ['stable', 'main']
-    }
-    </tt></td>
-  </tr>
-
-</table>
+| Key | Type | Description | Default |
+|-----|------|-------------|---------|
+| `node['netuitive']['version']` | string | The version of the agent to install | `'0.2.6-95'`|
+| `node['netuitive']['repo']['urls']` | Hash | A hash of platform specific repo urls | `{ 'debian' => 'https://repos.app.netuitive.com/deb/', 'rhel' => 'https://repos.app.netuitive.com/rpm/noarch' }` |
+| `node['netuitive']['repo']['keys']` | Hash | A hash of platform specific repo gpg key locations | `{ 'debian' => 'https://repos.app.netuitive.com/netuitive.gpg', 'rhel' => 'https://repos.app.netuitive.com/RPM-GPG-KEY-netuitive' }` |
+| `node['netuitive']['repo']['components']` | Hash | A hash of platform specific compnents | `{ 'debian' => ['stable', 'main'] }` |
 
 ## Recipes
 
