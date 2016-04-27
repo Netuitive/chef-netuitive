@@ -92,8 +92,6 @@ Attributes:
     </tr>
     <tr>
         <td>package_name</td>
-    </tr>
-    <tr>
         <td>The package's name.</td>
     </tr>
 </table>
@@ -134,7 +132,7 @@ Attributes:
 Additional Information
 ============
 
-## Attributes
+### Attributes
 
 <table>
   <tr>
