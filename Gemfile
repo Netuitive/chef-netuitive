@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem "test-kitchen"
-gem "kitchen-vagrant"
+gem 'rubocop'
+gem 'test-kitchen'
+gem 'kitchen-vagrant'
 gem 'serverspec'
 gem 'chefspec'
 gem 'stove'

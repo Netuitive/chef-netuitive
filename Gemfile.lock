@@ -219,6 +219,7 @@ DEPENDENCIES
   foodcritic
   github_changelog_generator
   kitchen-vagrant
+  rubocop
   serverspec
   stove
   test-kitchen

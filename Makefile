@@ -1,3 +1,6 @@
+getdeps: ## get dependencies
+	bundle
+
 rubotest: ## run rubocop with our config file
 	rubocop -D -c rubocop.yml
 
