@@ -53,6 +53,7 @@ your PR. That way, if the PR is not accepted, the issue will remain and be track
 3. Clone the fork/branch locally:
 
     
+        $ git clone https://github.com/Netuitive/chef-netuitive.git
     
 4. Close (and reference) issues by the `closes #XXX` or `fixes #XXX` notation in the commit
 message. Please use a descriptive, useful commit message that could be used to understand why a
