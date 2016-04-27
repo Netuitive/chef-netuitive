@@ -6,13 +6,13 @@ Netuitive Cookbook (Chef)
 A cookbook to automate the installataion and configuration of the Netuitive Linux agent. For more 
 information on the Netuitive Linux Agent, see the [help docs](https://help.netuitive.com/Content/Misc/Datasources/Netuitive/new_netuitive_datasource.htm) or contact Netuitive support at [support@netuitive.com](mailto:support@netuitive.com).
 
-Requirements/Dependencies
+Supported Platforms
 ==========================
 
-### Officially Supported Platforms
+### Official
 Debian 8, Ubuntu 14.04 LTS, CentOS 6.5, and CentOS 7. Automated testing will be performed to ensure coverage of these platforms.
 
-### Not officially Supported
+### Unofficial
 We will attempt to support as many linux distributions as possible and are hoping to expand the above list over time. Any EPEL based system that still supports yum will likely work and we are open to PRs to expands functionality.
 
 Using the Netuitive Cookbook
@@ -21,28 +21,12 @@ Using the Netuitive Cookbook
 ### Recipes
 All recipes are simple wrappers around the lightweight resources and providers (LWRPs). We suggest using LWRPs over recipes as it will provide flexibility.
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>netuitive::default</td>
-        <td>Does nothing.</td>
-    </tr>
-    <tr>
-        <td>netuitive::add_repo</td>
-        <td>Adds the Netuitive repo.</td>
-    </tr>
-    <tr>
-        <td>netuitive::configure</td>
-        <td>Sets base and custom config.</td>
-    </tr>
-    <tr>
-        <td>netuitive::install_agent</td>
-        <td>Installs the agent.</td>
-    </tr>
-</table>
+| Name | Description |
+|:------:|-------------|
+| netuitive::default | Does nothing. |
+| netuitive::add_repo | Adds the Netuitive repo. |
+| netuitive::configure | Sets base and custom config. |
+| netuitive::install_agent | Installs the agent. |
 
 ### LWRPs
 
@@ -84,6 +68,7 @@ All recipes are simple wrappers around the lightweight resources and providers (
 | repo_keys | A hash of platform-specific repository GPG keys. |
 | repo_components | A hash of platform-specific components. |
 | package_options | A string with package-specific options. |
+
 
 Additional Information
 ============
