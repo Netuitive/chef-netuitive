@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.0
+- Update to latest Netuitive-agent (0.2.6-95)
+- Update default netuitive-agent.conf template
+
 ## 0.3.1
 ### Fixed
 - bad metadata for platforms supported

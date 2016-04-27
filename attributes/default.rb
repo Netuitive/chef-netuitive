@@ -1,5 +1,5 @@
 # version
-default['netuitive']['version'] = '0.2.3-70'
+default['netuitive']['version'] = '0.2.6-95'
 
 # do we want to add a repo?
 default['netuitive']['add_repo'] = true

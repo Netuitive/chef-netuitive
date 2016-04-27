@@ -11,7 +11,7 @@
 [server]
 
 # Handlers for published metrics.
-handlers = diamond.handler.netuitive_cloud.NetuitiveHandler
+handlers = diamond.handler.netuitive_handler.NetuitiveHandler
 
 # User diamond will run as
 # Leave empty to use the current user
@@ -26,11 +26,12 @@ pid_file = /opt/netuitive-agent/netuitive-agent.pid
 
 # Directory to load collector modules from
 collectors_path = /opt/netuitive-agent/collectors/
+
 # Directory to load collector configs from
 collectors_config_path = /opt/netuitive-agent/conf/collectors/
 
 # Directory to load handler configs from
-handlers_config_path = /opt/netuitive-agent/conf/handlers/
+# handlers_config_path = /opt/netuitive-agent/conf/handlers/
 
 # Directory to load handler modules from
 # handlers_path = /opt/netuitive-agent/handlers/
@@ -52,10 +53,10 @@ keys = rotated_file
 
 [[NetuitiveHandler]]
 
-### NetuitiveCloud URL to post the metrics
+### Netuitive URL to post the metrics
 url = <%= @api_url %>
 
-### NetuitiveClound Datasource api key
+### Netuitive Datasource api key
 api_key = <%= @api_key %>
 
 ### Uncomment to add tags
@@ -70,9 +71,6 @@ api_key = <%= @api_key %>
 <%= "tags = #{@relations.sort.join(', ')}" %>
 <% end %>
 
-### Uncomment to add location
-# location = "row A rack 2"
-
 # How many samples to store before sending to Netuitive
 batch = 100
 
@@ -81,6 +79,15 @@ max_backlog_multiplier = 5
 
 # Trim down how many batches
 trim_backlog_multiplier = 4
+
+# local statsd server
+[[[statsd]]]
+enabled = <%= @statsd_enabled %>
+# listen_port = 8125
+# listen_ip = 127.0.0.1
+# forward_ip = 127.0.0.1
+# forward_port = 9125
+# forward = False
 
 ################################################################################
 ### Options for collectors
@@ -135,14 +142,18 @@ method = threading
 
 [[CPUCollector]]
 enabled = True
+percore = False
+include_cpu_pct = True
 
 [[DiskSpaceCollector]]
 enabled = True
 # exclude everything that begins /boot or /mnt
 exclude_filters = ^/boot, ^/mnt
+simple = True
 
 [[DiskUsageCollector]]
 enabled = True
+metrics_whitelist = (?:^.*\.io$|^.*\.average_queue_length$|^.*\.await$|^.*\.iops$|^.*\.read_await$|^.*\.reads$|^.*\.util_percentage|^.*\.write_await$|^.*\.writes$)
 
 [[LoadAverageCollector]]
 enabled = True
@@ -155,6 +166,7 @@ enabled = True
 
 [[NetworkCollector]]
 enabled = True
+metrics_whitelist = (?:^.*\.rx_byte$|^.*\.rx_errors$|^.*\.rx_packets$|^.*\.tx_byte$|^.*\.tx_errors$|^.*\.tx_packets$)
 
 [[NetuitiveDockerCollector]]
 enabled = False

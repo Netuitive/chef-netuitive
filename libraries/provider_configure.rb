@@ -12,6 +12,7 @@ class NetuitiveCookbook::NetuitiveConfigureProvider < Chef::Provider::LWRPBase
       variables(
         api_key: new_resource.api_key,
         api_url: new_resource.api_url,
+        statsd_enabled: new_resource.statsd_enabled,
         tags: new_resource.tags,
         relations: new_resource.relations
       )
