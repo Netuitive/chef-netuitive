@@ -47,87 +47,43 @@ All recipes are simple wrappers around the lightweight resources and providers (
 ### LWRPs
 
 #### Configure
-Actions: `:create`
 
-Attributes:
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>api_key</td>
-        <td>Your datasource's API key.</td>
-    </tr>
-    <tr>
-        <td>conf_path</td>
-        <td>The path to your Netuitive agent config file.</td>
-    </tr>
-    <tr>
-        <td>cookbook_template</td>
-        <td>Specifies a different cookbook that the template can come from.</td>
-    </tr>
-    <tr>
-        <td>custom_config_path</td>
-        <td>Path to your Netuitive agent custom config file.</td>
-    </tr>
-    <tr>
-        <td>custom_vars</td>
-        <td>Any variables you want to include in the custom config file.</td>
-    </tr>
-    <tr>    
-        <td>source</td>
-        <td>The name of the template.</td>
-    </tr>
-</table>
+##### Actions
+`:create`
+
+##### Attributes
+| Name | Description |
+|:------:|-------------|
+| api_key | Your datasource's API key. |
+| conf_path | The path to your Netuitive agent config file. |
+| cookbook_template | Specifies a different cookbook that the template can come from. |
+| custom_config_path | Path to your Netuitive agent custom config file. |
+| custom_vars | Any variables you want to include in the custom config file. |
+| source | The name of the template. |
 
 #### Install
-Actions: `:install`
 
-Attributes:
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>package_name</td>
-        <td>The package's name.</td>
-    </tr>
-</table>
+##### Actions
+`:install`
+
+##### Attributes
+| Name | Description |
+|:------:|-------------|
+| package_name | The package's name. |
 
 #### Repo
-Actions: `:add`
 
-Attributes:
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>version</td>
-        <td>The version to pin.</td>
-    </tr>
-    <tr>
-        <td>repo_urls</td>
-        <td>A hash of platform-specific repository URLs.</td>
-    </tr>
-    <tr>
-        <td>repo_keys</td>
-        <td>A hash of platform-specific repository GPG keys.</td>
-        
-    </tr>
-    <tr>
-        <td>repo_components</td>
-        <td>A hash of platform-specific components.</td>
-        
-    </tr>
-    <tr>
-        <td>package_options</td>
-        <td>A string with package-specific options.</td>
-    </tr>
-</table>
+##### Actions
+`:add`
+
+##### Attributes
+| Name | Description |
+|:------:|-------------|
+| version | The version to pin. |
+| repo_urls | A hash of platform-specific repository URLs. |
+| repo_keys | A hash of platform-specific repository GPG keys. |
+| repo_components | A hash of platform-specific components. |
+| package_options | A string with package-specific options. |
 
 Additional Information
 ============
@@ -141,59 +97,8 @@ Additional Information
 | `node['netuitive']['repo']['keys']` | Hash | A hash of platform specific repo gpg key locations | `{ 'debian' => 'https://repos.app.netuitive.com/netuitive.gpg', 'rhel' => 'https://repos.app.netuitive.com/RPM-GPG-KEY-netuitive' }` |
 | `node['netuitive']['repo']['components']` | Hash | A hash of platform specific compnents | `{ 'debian' => ['stable', 'main'] }` |
 
-## Recipes
 
-All recipes are simple wrappers around the LWRPS, I would recommend you always use LWRPS over recipes as it will give you flexibility.
-
-### netuitive::default
-
-Does nothing.
-
-### netuitive::add_repo
-
-Adds the netuitive repo
-
-### netuitive::configure
-
-Sets base and custom config.
-
-### netuitive::install_agent
-
-Installs the agent.
-
-## LWRPS
-
-### Configure
-
-Actions: `:create`
-
-Attributes:
-- api_key: your data source API Key
-- conf_path: path to the netuitive agent config file
-- cookbook template: allows you to specify a different cookbook that the template can come from
-- custom_config_path: where your custom netuitive config
-- custom_vars: any vars you want to include in custom config
-- source: the name of the template
-
-### Install
-
-Actions: `:install`
-
-Attributes:
-- package_name: the package name
-
-### Repo
-
-Actions: `:add`
-
-Attributes:
-- version: the version to pin
-- repo_urls: a hash of platform specific repo urls
-- repo_keys: a hash of platform specific repo gpg keys
-- repo_components: a hash of platform specific components
-- package_options: a string with package specific options
-
-## License and Authors
+### License and Authors
 This software is licensed under MIT license quoted below:
 
 ```
