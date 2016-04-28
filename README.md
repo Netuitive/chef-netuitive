@@ -6,7 +6,17 @@ Netuitive Cookbook (Chef)
 A cookbook to automate the installataion and configuration of the Netuitive Linux agent. For more 
 information on the Netuitive Linux Agent, see the [help docs](https://help.netuitive.com/Content/Misc/Datasources/Netuitive/new_netuitive_datasource.htm) or contact Netuitive support at [support@netuitive.com](mailto:support@netuitive.com).
 
-## Supported Platforms
+### Attributes
+
+| Key | Type | Description | Default |
+|-----|------|-------------|---------|
+| `node['netuitive']['version']` | string | The version of the agent to install | `'0.2.6-95'`|
+| `node['netuitive']['repo']['urls']` | Hash | A hash of platform specific repo urls | `{ 'debian' => 'https://repos.app.netuitive.com/deb/', 'rhel' => 'https://repos.app.netuitive.com/rpm/noarch' }` |
+| `node['netuitive']['repo']['keys']` | Hash | A hash of platform specific repo gpg key locations | `{ 'debian' => 'https://repos.app.netuitive.com/netuitive.gpg', 'rhel' => 'https://repos.app.netuitive.com/RPM-GPG-KEY-netuitive' }` |
+| `node['netuitive']['repo']['components']` | Hash | A hash of platform specific compnents | `{ 'debian' => ['stable', 'main'] }` |
+
+Supported Platforms
+--------------------
 
 ### Official
 Debian 8, Ubuntu 14.04 LTS, CentOS 6.5, and CentOS 7. Automated testing will be performed to ensure coverage of these platforms.
@@ -14,7 +24,8 @@ Debian 8, Ubuntu 14.04 LTS, CentOS 6.5, and CentOS 7. Automated testing will be 
 ### Unofficial
 We will attempt to support as many linux distributions as possible and are hoping to expand the above list over time. Any EPEL based system that still supports yum will likely work and we are open to PRs to expands functionality.
 
-## Using the Netuitive Cookbook
+Using the Netuitive Cookbook
+-----------------------------
 
 ### Recipes
 All recipes are simple wrappers around the lightweight resources and providers (LWRPs). We suggest using LWRPs over recipes as it will provide flexibility.
@@ -68,17 +79,8 @@ All recipes are simple wrappers around the lightweight resources and providers (
 | package_options | A string with package-specific options. |
 
 
-## Additional Information
-
-### Attributes
-
-| Key | Type | Description | Default |
-|-----|------|-------------|---------|
-| `node['netuitive']['version']` | string | The version of the agent to install | `'0.2.6-95'`|
-| `node['netuitive']['repo']['urls']` | Hash | A hash of platform specific repo urls | `{ 'debian' => 'https://repos.app.netuitive.com/deb/', 'rhel' => 'https://repos.app.netuitive.com/rpm/noarch' }` |
-| `node['netuitive']['repo']['keys']` | Hash | A hash of platform specific repo gpg key locations | `{ 'debian' => 'https://repos.app.netuitive.com/netuitive.gpg', 'rhel' => 'https://repos.app.netuitive.com/RPM-GPG-KEY-netuitive' }` |
-| `node['netuitive']['repo']['components']` | Hash | A hash of platform specific compnents | `{ 'debian' => ['stable', 'main'] }` |
-
+Additional Information
+-----------------------
 
 ### License and Authors
 This software is licensed under MIT license quoted below:
