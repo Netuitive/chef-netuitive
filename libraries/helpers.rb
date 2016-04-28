@@ -82,5 +82,25 @@ module NetuitiveCookbook
         raise 'could not get a hash of repo_priority_pins'
       end
     end
+
+    def determine_collectors_dir(new_resource, node)
+      if new_resource.collectors_dir
+        new_resource.custom_collectors.to_s
+      elsif node['netuitive'] && node['netuitive']['collectors_dir']
+        node['netuitive'] && node['netuitive']['collectors_dir'].to_h
+      else
+        raise 'could not get a string of the collector dir'
+      end
+    end
+
+    def determine_custom_collectors(new_resource, node)
+      if new_resource.custom_collectors
+        new_resource.custom_collectors.to_h
+      elsif node['netuitive'] && node['netuitive']['custom_collectors']
+        node['netuitive'] && node['netuitive']['custom_collectors'].to_h
+      else
+        raise 'could not get a hash of collectors'
+      end
+    end
   end
 end

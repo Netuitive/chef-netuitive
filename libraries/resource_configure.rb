@@ -10,9 +10,6 @@ class NetuitiveCookbook::NetuitiveConfigureResource < Chef::Resource::LWRPBase
   attribute(:statsd_enabled, kind_of: String, default: 'False')
   attribute(:conf_path, kind_of: String, default: '/opt/netuitive-agent/conf/netuitive-agent.conf')
   attribute(:cookbook_template, kind_of: String, default: 'netuitive')
-  # DONT USE THIS UNTIL config merging is fixed in netuitive/diamond
-  attribute(:custom_config_path, kind_of: String, default: '/opt/netuitive-agent/conf/custom_config.conf')
-  attribute(:custom_vars, kind_of: Hash, default: nil)
   # an array of relations
   attribute(:relations, kind_of: Array, default: [])
   attribute(:source, kind_of: String, default: 'netuitive-agent.conf.erb')

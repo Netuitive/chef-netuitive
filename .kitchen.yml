@@ -20,3 +20,7 @@ suites:
       - recipe[netuitive::install_agent]
       - recipe[netuitive::configure]
     attributes:
+      netuitive:
+        custom_collectors:
+          FooBarCollector:
+            foo: bar

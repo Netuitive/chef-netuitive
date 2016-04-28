@@ -14,6 +14,7 @@ information on the Netuitive Linux Agent, see the [help docs](https://help.netui
 | `node['netuitive']['repo']['urls']` | Hash | A hash of platform specific repo urls | `{ 'debian' => 'https://repos.app.netuitive.com/deb/', 'rhel' => 'https://repos.app.netuitive.com/rpm/noarch' }` |
 | `node['netuitive']['repo']['keys']` | Hash | A hash of platform specific repo gpg key locations | `{ 'debian' => 'https://repos.app.netuitive.com/netuitive.gpg', 'rhel' => 'https://repos.app.netuitive.com/RPM-GPG-KEY-netuitive' }` |
 | `node['netuitive']['repo']['components']` | Hash | A hash of platform specific compnents | `{ 'debian' => ['stable', 'main'] }` |
+| `node['netuitive']['custom_collectors']` | Hash | A hash of collectors and options | `{}` |
 
 Supported Platforms
 --------------------
@@ -39,7 +40,7 @@ All recipes are simple wrappers around the lightweight resources and providers (
 
 ### LWRPs
 
-#### Configure
+#### netuitive_configure
 
 ##### Actions
 `:create`
@@ -54,7 +55,21 @@ All recipes are simple wrappers around the lightweight resources and providers (
 | custom_vars | Any variables you want to include in the custom config file. |
 | source | The name of the template. |
 
-#### Install
+#### netuitive_collector
+
+##### Actions
+`:create`
+
+##### Attributes
+| Name | Description |
+|:------:|-------------|
+| conf_path | The path to your Netuitive agent config file. |
+| cookbook_template | Specifies a different cookbook that the template can come from. |
+| collectors_dir | Dir that custom collectors live in. |
+| custom_collectors | A hash of collectos and options to create. |
+| source | The name of the template. |
+
+#### netuitive_install
 
 ##### Actions
 `:install`
@@ -64,7 +79,7 @@ All recipes are simple wrappers around the lightweight resources and providers (
 |:------:|-------------|
 | package_name | The package's name. |
 
-#### Repo
+#### netuitive_repo
 
 ##### Actions
 `:add`
