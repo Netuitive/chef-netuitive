@@ -1,21 +1,12 @@
-# netuitive cookbook
+Netuitive Cookbook (Chef)
+==========================
 
-[![Build Status](https://travis-ci.org/Netuitive/chef-netuitive.svg?branch=master)](https://travis-ci.org/Netuitive/chef-netuitive)
-[![Join the chat at https://gitter.im/Netuitive/chef-netuitive](https://badges.gitter.im/Netuitive/chef-netuitive.svg)](https://gitter.im/Netuitive/chef-netuitive?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Netuitive/chef-netuitive/master/LICENSE)
+[![Build Status](https://travis-ci.org/Netuitive/chef-netuitive.svg?branch=master)](https://travis-ci.org/Netuitive/chef-netuitive) [![Join the chat at https://gitter.im/Netuitive/chef-netuitive](https://badges.gitter.im/Netuitive/chef-netuitive.svg)](https://gitter.im/Netuitive/chef-netuitive?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Netuitive/chef-netuitive/master/LICENSE)
 
-A cookbook to install and configure the netuitive agent.
+A cookbook to automate the installataion and configuration of the Netuitive Linux agent. For more
+information on the Netuitive Linux Agent, see the [help docs](https://help.netuitive.com/Content/Misc/Datasources/Netuitive/new_netuitive_datasource.htm) or contact Netuitive support at [support@netuitive.com](mailto:support@netuitive.com).
 
-## Supported Platforms
-
-### Officially Supported
-We will officially support debian 8, ubuntu 14.04 LTS, centos 6.5, and centos7 and will do automated testing to ensure that we have coverage on these.
-
-### Not officially Supported
-We will attempt to support as many linux distributions as possible and are hoping to expand the above list over time. Any EPEL based system that still supports yum will likely work and we are open to PRs to expands functionality.
-
-
-## Attributes
+### Attributes
 
 | Key | Type | Description | Default |
 |-----|------|-------------|---------|
@@ -24,59 +15,73 @@ We will attempt to support as many linux distributions as possible and are hopin
 | `node['netuitive']['repo']['keys']` | Hash | A hash of platform specific repo gpg key locations | `{ 'debian' => 'https://repos.app.netuitive.com/netuitive.gpg', 'rhel' => 'https://repos.app.netuitive.com/RPM-GPG-KEY-netuitive' }` |
 | `node['netuitive']['repo']['components']` | Hash | A hash of platform specific compnents | `{ 'debian' => ['stable', 'main'] }` |
 
-## Recipes
+Supported Platforms
+--------------------
 
-All recipes are simple wrappers around the LWRPS, I would recommend you always use LWRPS over recipes as it will give you flexibility.
+### Official
+Debian 8, Ubuntu 14.04 LTS, CentOS 6.5, and CentOS 7. Automated testing will be performed to ensure coverage of these platforms.
 
-### netuitive::default
+### Unofficial
+We will attempt to support as many linux distributions as possible and are hoping to expand the above list over time. Any EPEL based system that still supports yum will likely work and we are open to PRs to expands functionality.
 
-Does nothing.
+Using the Netuitive Cookbook
+-----------------------------
 
-### netuitive::add_repo
+### Recipes
+All recipes are simple wrappers around the lightweight resources and providers (LWRPs). We suggest using LWRPs over recipes as it will provide flexibility.
 
-Adds the netuitive repo
+| Name | Description |
+|:------:|-------------|
+| netuitive::default | Does nothing. |
+| netuitive::add_repo | Adds the Netuitive repo. |
+| netuitive::configure | Sets base and custom config. |
+| netuitive::install_agent | Installs the agent. |
 
-### netuitive::configure
+### LWRPs
 
-Sets base and custom config.
+#### Configure
 
-### netuitive::install_agent
+##### Actions
+`:create`
 
-Installs the agent.
+##### Attributes
+| Name | Description |
+|:------:|-------------|
+| api_key | Your datasource's API key. |
+| conf_path | The path to your Netuitive agent config file. |
+| cookbook_template | Specifies a different cookbook that the template can come from. |
+| custom_config_path | Path to your Netuitive agent custom config file. |
+| custom_vars | Any variables you want to include in the custom config file. |
+| source | The name of the template. |
 
-## LWRPS
+#### Install
 
-### Configure
+##### Actions
+`:install`
 
-Actions: `:create`
+##### Attributes
+| Name | Description |
+|:------:|-------------|
+| package_name | The package's name. |
 
-Attributes:
-- api_key: your data source API Key
-- conf_path: path to the netuitive agent config file
-- cookbook template: allows you to specify a different cookbook that the template can come from
-- custom_config_path: where your custom netuitive config
-- custom_vars: any vars you want to include in custom config
-- source: the name of the template
+#### Repo
 
-### Install
+##### Actions
+`:add`
 
-Actions: `:install`
+##### Attributes
+| Name | Description |
+|:------:|-------------|
+| version | The version to pin. |
+| repo_urls | A hash of platform-specific repository URLs. |
+| repo_keys | A hash of platform-specific repository GPG keys. |
+| repo_components | A hash of platform-specific components. |
+| package_options | A string with package-specific options. |
 
-Attributes:
-- package_name: the package name
+Additional Information
+-----------------------
 
-### Repo
-
-Actions: `:add`
-
-Attributes:
-- version: the version to pin
-- repo_urls: a hash of platform specific repo urls
-- repo_keys: a hash of platform specific repo gpg keys
-- repo_components: a hash of platform specific components
-- package_options: a string with package specific options
-
-## License and Authors
+### License and Authors
 This software is licensed under MIT license quoted below:
 
 ```
