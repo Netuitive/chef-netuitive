@@ -4,7 +4,7 @@ maintainer_email 'me@benabrams.it'
 license          'All rights reserved'
 description      'Installs/Configures netuitive'
 long_description 'Installs/Configures netuitive'
-version          '0.5.0'
+version          '0.6.0'
 
 depends 'apt'
 depends 'yum'

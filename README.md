@@ -10,7 +10,7 @@ information on the Netuitive Linux Agent, see the [help docs](https://help.netui
 
 | Key | Type | Description | Default |
 |-----|------|-------------|---------|
-| `node['netuitive']['version']` | string | The version of the agent to install | `'0.2.6-95'`|
+| `node['netuitive']['version']` | string | The version of the agent to install | `'0.2.7-96'`|
 | `node['netuitive']['repo']['urls']` | Hash | A hash of platform specific repo urls | `{ 'debian' => 'https://repos.app.netuitive.com/deb/', 'rhel' => 'https://repos.app.netuitive.com/rpm/noarch' }` |
 | `node['netuitive']['repo']['keys']` | Hash | A hash of platform specific repo gpg key locations | `{ 'debian' => 'https://repos.app.netuitive.com/netuitive.gpg', 'rhel' => 'https://repos.app.netuitive.com/RPM-GPG-KEY-netuitive' }` |
 | `node['netuitive']['repo']['components']` | Hash | A hash of platform specific compnents | `{ 'debian' => ['stable', 'main'] }` |
