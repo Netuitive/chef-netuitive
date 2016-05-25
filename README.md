@@ -46,14 +46,16 @@ All recipes are simple wrappers around the lightweight resources and providers (
 `:create`
 
 ##### Attributes
-| Name | Description |
-|:------:|-------------|
-| api_key | Your datasource's API key. |
-| conf_path | The path to your Netuitive agent config file. |
-| cookbook_template | Specifies a different cookbook that the template can come from. |
-| custom_config_path | Path to your Netuitive agent custom config file. |
-| custom_vars | Any variables you want to include in the custom config file. |
-| source | The name of the template. |
+| Name | Description | Default |
+|:------:|-------------|-------------|
+| api_key | Your datasource's API key. | 'CHANGE_ME_PLZ' |
+| api_url | The API url for netuitive. | 'https://api.app.netuitive.com/ingest/infrastructure' |
+| conf_path | The path to your Netuitive agent config file. | '/opt/netuitive-agent/conf/netuitive-agent.conf' |
+| cookbook_template | Specifies a different cookbook that the template can come from. | 'netuitive' |
+| relations | An array of relations. | [] |
+| source | The name of the template. | 'netuitive-agent.conf.erb' |
+| statsd_enabled | Whether to enable embedded statsd server. | 'False' |
+| tags | An array of tags . | [] |
 
 #### netuitive_collector
 
@@ -61,13 +63,13 @@ All recipes are simple wrappers around the lightweight resources and providers (
 `:create`
 
 ##### Attributes
-| Name | Description |
-|:------:|-------------|
-| conf_path | The path to your Netuitive agent config file. |
-| cookbook_template | Specifies a different cookbook that the template can come from. |
-| collectors_dir | Dir that custom collectors live in. |
-| custom_collectors | A hash of collectos and options to create. |
-| source | The name of the template. |
+| Name | Description | Default |
+|:------:|-------------|-------------|
+| conf_path | The path to your Netuitive agent config file. | '/opt/netuitive-agent/conf/netuitive-agent.conf' |
+| cookbook_template | Specifies a different cookbook that the template can come from. | 'netuitive' |
+| collectors_dir | Dir that custom collectors live in. | '/opt/netuitive-agent/conf/collectors' |
+| custom_collectors | A hash of collectos and options to create. | {} |
+| source | The name of the template. | collector_generic.conf.erb |
 
 #### netuitive_install
 
@@ -75,9 +77,9 @@ All recipes are simple wrappers around the lightweight resources and providers (
 `:install`
 
 ##### Attributes
-| Name | Description |
-|:------:|-------------|
-| package_name | The package's name. |
+| Name | Description | Default |
+|:------:|-------------|-------------|
+| package_name | The package's name. | 'netuitive-agent' |
 
 #### netuitive_repo
 
@@ -85,13 +87,15 @@ All recipes are simple wrappers around the lightweight resources and providers (
 `:add`
 
 ##### Attributes
-| Name | Description |
-|:------:|-------------|
-| version | The version to pin. |
-| repo_urls | A hash of platform-specific repository URLs. |
-| repo_keys | A hash of platform-specific repository GPG keys. |
-| repo_components | A hash of platform-specific components. |
-| package_options | A string with package-specific options. |
+| Name | Description | Default |
+|:------:|-------------|-------------|
+| repo_components | A hash of platform-specific components. | nil |
+| repo_keys | A hash of platform-specific repository GPG keys. | nil |
+| repo_priority_pins | A hash of platform-specific repo pins. | nil |
+| repo_urls | A hash of platform-specific repository URLs. | nil |
+| use_epel_repos | Bool value to enable epel repos (doesnt do anything on debian based repos). | nil |
+| version | The version to pin. | nil |
+
 
 Additional Information
 -----------------------

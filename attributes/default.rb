@@ -28,8 +28,3 @@ default['netuitive']['repo']['components'] = {
 }
 
 default['netuitive']['custom_collectors'] = {}
-
-# # package manager_options
-# default['netuitive']['pkg_mgr']['options'] = {
-#   'debian' => '--force-yes -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew"'
-# }

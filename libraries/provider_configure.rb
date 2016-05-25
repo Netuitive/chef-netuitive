@@ -5,7 +5,8 @@ class NetuitiveCookbook::NetuitiveConfigureProvider < Chef::Provider::LWRPBase
   use_inline_resources
 
   action :create do
-    # the default template for netuitive with your API key
+    # your netutive config with the default plugins
+    # see custom_collectors to add additional collectors
     template new_resource.conf_path do
       source new_resource.source
       cookbook new_resource.cookbook_template

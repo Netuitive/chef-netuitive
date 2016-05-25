@@ -15,16 +15,6 @@ module NetuitiveCookbook
       end
     end
 
-    def determine_init_scripts(new_resource, node)
-      if new_resource.init_scripts
-        new_resource.init_scripts.to_h
-      elsif node['netuitive'] && node['netuitive']['init_scripts']
-        node['netuitive']['init_scripts'].to_h
-      else
-        raise 'could not fetch a list of subsystems'
-      end
-    end
-
     def systemd?
       IO.read('/proc/1/comm').chomp == 'systemd'
     end
