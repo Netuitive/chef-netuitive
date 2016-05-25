@@ -5,7 +5,7 @@ DEPENDENCIES
 
 GRAPH
   apt (3.0.0)
-  netuitive (0.8.0)
+  netuitive (0.9.0)
     apt (>= 0.0.0)
     yum (>= 0.0.0)
   yum (3.10.0)

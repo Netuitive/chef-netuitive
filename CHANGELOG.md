@@ -1,6 +1,12 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.9.0
+- Update to latest Netuitive-agent (0.2.9-98)
+
+## 0.8.0
+- cleanup deprecated code
+
 ## 0.7.0
 - Update to latest Netuitive-agent (0.2.8-97)
 
