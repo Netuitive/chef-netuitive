@@ -1,8 +1,8 @@
 class NetuitiveCookbook::NetuitiveConfigureProvider < Chef::Provider::LWRPBase
   include NetuitiveCookbook::Helpers
-  provides :netuitive_configure
+  provides :netuitive_configure if defined?(provides)
 
-  use_inline_resources
+  use_inline_resources if defined?(use_inline_resources)
 
   action :create do
     # your netutive config with the default plugins

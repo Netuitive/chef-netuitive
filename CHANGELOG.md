@@ -1,6 +1,12 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.11.0
+- adding some tools to make version and tagging easier
+- adding doc on chef version compatibility
+- attempt to add chef 11 support
+- restructure testing to allow multiple versions to be developed and tested
+
 ## 0.10.0
 - make sure that agent restarts when custom collector config changes (is added).
 

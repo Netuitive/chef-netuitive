@@ -1,6 +1,6 @@
 class NetuitiveCookbook::NetuitiveCollectorResource < Chef::Resource::LWRPBase
   resource_name :netuitive_collector
-  provides :netuitive_collector
+  provides :netuitive_collector if defined?(provides)
 
   actions :create
   default_action :create

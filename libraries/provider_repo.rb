@@ -1,8 +1,8 @@
 class NetuitiveCookbook::NetuitiveRepoProvider < Chef::Provider::LWRPBase
   include NetuitiveCookbook::Helpers
-  provides :netuitive_repo
+  provides :netuitive_repo if defined?(provides)
 
-  use_inline_resources
+  use_inline_resources if defined?(use_inline_resources)
 
   action :add do
     platform = determine_platform
