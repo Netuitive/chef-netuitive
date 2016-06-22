@@ -21,11 +21,20 @@ This cookbook is meant to be consumed by wrapper cookbooks such as this: [wrappe
 Supported Platforms
 --------------------
 
-### Official
+### Operating Systems
+
+#### Official
 Debian 8, Ubuntu 14.04 LTS, CentOS 6.5, and CentOS 7. Automated testing will be performed to ensure coverage of these platforms.
 
-### Unofficial
+#### Unofficial
 We will attempt to support as many linux distributions as possible and are hoping to expand the above list over time. Any EPEL based system that still supports yum will likely work and we are open to PRs to expands functionality.
+
+### Chef Versions
+#### Chef 12.x
+We support all versions of 12.x (even if we don't test it regularly).
+
+#### Chef 11.x
+We have written this cookbook using many of the nicer things of chef 12. We are open to community contributions to enable/improve the cookbook to support older versions of chef within reason. If you need chef 11 support in the mean time please see the  `feature/chef-11-compatibility` branch.
 
 Using the Netuitive Cookbook
 -----------------------------

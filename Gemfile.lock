@@ -179,6 +179,7 @@ GEM
     ruby-progressbar (1.7.5)
     rufus-lru (1.0.5)
     safe_yaml (1.0.4)
+    semver2 (3.4.2)
     serverspec (2.31.0)
       multi_json
       rspec (~> 3.0)
@@ -220,6 +221,7 @@ DEPENDENCIES
   github_changelog_generator
   kitchen-vagrant
   rubocop
+  semver2
   serverspec
   stove
   test-kitchen
