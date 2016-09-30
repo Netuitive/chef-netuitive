@@ -1,7 +1,15 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.11.0
+## [Unreleased]
+
+## 0.13.0
+- fix typos in tags and relations @ziggythehamster
+- fix typo with logger repo provider @ziggythehamster
+- added docker_collector_enabled @ziggythehamster
+
+
+## 0.12.0
 - adding some tools for making versioning and tagging easier
 - adding doc on chef version compatibility
 - restructure testing to allow multiple versions to be developed and tested
