@@ -27,6 +27,7 @@ class NetuitiveCookbook::NetuitiveRepoProvider < Chef::Provider::LWRPBase
       include_recipe 'apt'
       # add repo and key
       apt_repository 'netuitive' do
+        distribution ''
         uri new_resource.repo_urls['debian']
         key new_resource.repo_keys['debian']
         components new_resource.repo_components['debian']
