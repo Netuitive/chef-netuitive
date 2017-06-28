@@ -2,15 +2,17 @@
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- changed to use chef-client 12.16 
+- fixed issue with apt repository creation per #49. @Createor
 
 # 0.17.0
-- bump default collector agent version @Creator
+- bump default collector agent version @Createor
 
 # 0.16.0
 - added support for Ubuntu 16.04 LTS and made it an an officially supported platforms
 - updating gem dependencies
 - removed ruby 2.1 support
-- removed chef 11 testing as its support exists in its own brnch and I would not expect any more work done on it.
+- removed chef 11 testing as its support exists in its own branch and I would not expect any more work done on it.
 - setup travis to run kitchen tests for centos-6 and centos-7 (more to come later)
 
 # 0.15.1
