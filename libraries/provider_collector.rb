@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NetuitiveCookbook::NetuitiveCollectorProvider < Chef::Provider::LWRPBase
   include NetuitiveCookbook::Helpers
   provides :netuitive_collector
@@ -23,7 +25,7 @@ class NetuitiveCookbook::NetuitiveCollectorProvider < Chef::Provider::LWRPBase
         owner 'root'
         group 'root'
         cookbook new_resource.cookbook_template
-        mode 00744
+        mode 0o0744
         variables(
           options: options
         )

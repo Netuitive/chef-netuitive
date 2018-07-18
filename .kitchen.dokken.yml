@@ -1,7 +1,7 @@
 ---
 driver:
   name: dokken
-  chef_version: 12.9.38
+  chef_version: 13.8.13
   privileged: true
 
 transport:
@@ -11,8 +11,7 @@ provisioner:
   name: dokken
 
 verifier:
-  root_path: /opt/verifier
-  sudo: false
+  name: inspec
 
 platforms:
   - name: centos-6
@@ -29,11 +28,28 @@ platforms:
       pid_one_command: /usr/lib/systemd/systemd
       intermediate_instructions:
       - RUN yum -y install lsof which net-tools
-
+  - name: ubuntu-1604
+    named_run_list: debian
+    driver:
+      image: ubuntu:16.04
+      privileged: true
+      pid_one_command: /bin/systemd
+      intermediate_instructions: # any tasks before runlist is evaluated and run
+      - RUN apt-get -y update && apt-get install -y net-tools curl
+      - ENV container docker
+      - CMD ['/usr/sbin/init']
+  - name: ubuntu-1804
+    named_run_list: debian
+    driver:
+      image: dokken/ubuntu-18.04
+      privileged: true
+      pid_one_command: /bin/systemd
+      intermediate_instructions: # any tasks before runlist is evaluated and run
+      - RUN apt-get -y update && apt-get install -y net-tools curl
+      - ENV container docker
+      - CMD ['/usr/sbin/init']
 suites:
   - name: netuitive
-    driver_config:
-      require_chef_omnibus: 12.8
     run_list:
       - recipe[netuitive::add_repo]
       - recipe[netuitive::install_agent]

@@ -15,8 +15,8 @@ platforms:
 
 suites:
   - name: netuitive
-    driver_config:
-      require_chef_omnibus: 12.16
+    driver:
+      chef_version: 12.16
     run_list:
       - recipe[netuitive::add_repo]
       - recipe[netuitive::install_agent]
@@ -26,39 +26,3 @@ suites:
         custom_collectors:
           FooBarCollector:
             foo: bar
-  - name: chef-12.4
-    driver_config:
-      require_chef_omnibus: 12.4
-    run_list:
-      - recipe[netuitive::add_repo]
-      - recipe[netuitive::install_agent]
-      - recipe[netuitive::configure]
-    attributes:
-      netuitive:
-        custom_collectors:
-          FooBarCollector:
-            foo: bar
-  - name: chef-12.8
-    driver_config:
-      require_chef_omnibus: 12.8
-    run_list:
-      - recipe[netuitive::add_repo]
-      - recipe[netuitive::install_agent]
-      - recipe[netuitive::configure]
-    attributes:
-      netuitive:
-        custom_collectors:
-          FooBarCollector:
-            foo: bar
-  # - name: chef-11.18.12
-  #   driver_config:
-  #     require_chef_omnibus: 11.18.12
-  #   run_list:
-  #     - recipe[netuitive::add_repo]
-  #     - recipe[netuitive::install_agent]
-  #     - recipe[netuitive::configure]
-  #   attributes:
-  #     netuitive:
-  #       custom_collectors:
-  #         FooBarCollector:
-  #           foo: bar
