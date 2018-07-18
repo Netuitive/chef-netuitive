@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name             'netuitive'
 maintainer       'Ben Abrams'
 maintainer_email 'me@benabrams.it'
@@ -9,6 +11,6 @@ version          '0.19.0'
 depends 'apt'
 depends 'yum'
 
-%w(ubuntu debian centos redhat).each do |os|
+%w[ubuntu debian centos redhat].each do |os|
   supports os
 end

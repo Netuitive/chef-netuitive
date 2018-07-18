@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # version
 default['netuitive']['version'] = '0.5.3-120'
 

@@ -12,6 +12,10 @@ Style/GuardClause:
 Metrics/AbcSize:
   Max: 100
 
+# chef blocks can be long
+Metrics/BlockLength:
+  Max: 75
+
 # you cant determine complexity!
 PerceivedComplexity:
   Enabled: false
@@ -75,7 +79,7 @@ Style/HashSyntax:
 Style/RescueModifier:
   Enabled: false
 
-Style/AccessorMethodName:
+Naming/AccessorMethodName:
   Enabled: false
 
 # allow larger modules
@@ -94,12 +98,12 @@ Lint/ParenthesesAsGroupedExpression:
 #   Enabled: false
 
 # allow multiple spaces between methofs and first arg
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   Enabled: false
 
 # There are too many non-ruby files that run up against rubocop rules in a cookbook
 AllCops:
-  TargetRubyVersion: 2.1
+  TargetRubyVersion: 2.4
   Include:
     - '**/metadata.rb'
     - '**/*.rb'

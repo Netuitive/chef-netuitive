@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook: netuitive
 # license: All rights reserved

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NetuitiveCookbook::NetuitiveCollectorResource < Chef::Resource::LWRPBase
   resource_name :netuitive_collector
   provides :netuitive_collector

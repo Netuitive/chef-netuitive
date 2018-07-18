@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NetuitiveCookbook
   module Helpers
     def determine_platform
