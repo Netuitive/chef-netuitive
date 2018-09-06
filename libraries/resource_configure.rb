@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NetuitiveCookbook::NetuitiveConfigureResource < Chef::Resource::LWRPBase
   resource_name :netuitive_configure
   provides :netuitive_configure

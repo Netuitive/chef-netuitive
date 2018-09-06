@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NetuitiveCookbook::NetuitiveConfigureProvider < Chef::Provider::LWRPBase
   include NetuitiveCookbook::Helpers
   provides :netuitive_configure

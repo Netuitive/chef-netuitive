@@ -4,11 +4,12 @@ services: docker
 
 language: ruby
 rvm:
-  - 2.2.5
+  - 2.4.3
 
 # env:
-#   matrix:
-#     - INSTANCE=netuitive-centos-6
+  matrix:
+    - INSTANCE=netuitive-centos-6
+    - INSTANCE=netuitive-centos-7
 # install:
 #   - sudo apt-get update -q
 #   - sudo apt-get install -q virtualbox --fix-missing
@@ -27,14 +28,14 @@ cache:
   directories:
   - vendor/bundle
 
-addons:
-  apt:
-    sources:
-    - chef-stable-precise
-    packages:
-    - chefdk
+# addons:
+#   apt:
+#     sources:
+#     - chef-stable-precise
+#     packages:
+#     - chefdk
 
-script: make travisci
+script: INSTANCE=$INSTANCE make travisci
 
 deploy:
   provider: chef-supermarket

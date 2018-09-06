@@ -32,15 +32,16 @@ kitchenverify: ## kitchen verify
 	kitchen verify
 
 rubofix: ## run rubocop and attempt to auto correct
-	rubocop -D -a -c rubocop.yml
+	rubocop -D -a -c .rubocop.yml
 
 rubotest: ## run rubocop with our config file
-	rubocop -D -c rubocop.yml
+	rubocop -D -c .rubocop.yml
 
 test: rubotest foodtest kitchenconverge kitchenverify ## tests to run locally when developing
 
 travisci: rubotest foodtest ## tests to run in travis when a pr is created
-	KITCHEN_YAML=.kitchen.dokken.yml bundle exec kitchen test
+	# if instance is not specified it will run all instances
+	KITCHEN_YAML=.kitchen.dokken.yml bundle exec kitchen test ${INSTANCE}
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 

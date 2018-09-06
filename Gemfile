@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'berkshelf', '~> 5.6'
+# gem 'chef', '~> 13.8'
 gem 'chefspec'
 gem 'foodcritic'
 gem 'kitchen-docker', '~> 2.5'
-gem 'kitchen-dokken', '~> 1.1'
+gem 'kitchen-dokken', '~> 2.6'
 gem 'kitchen-vagrant'
 gem 'rubocop'
 gem 'semver2'
