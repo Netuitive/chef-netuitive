@@ -43,6 +43,7 @@ deploy:
   provider: chef-supermarket
   user_id: metricly
   client-key: client.pem
+  cookbook_name: netuitive
   cookbook_category: Others
   on:
     tags: true
