@@ -19,7 +19,7 @@ class NetuitiveCookbook::NetuitiveConfigureProvider < Chef::Provider::LWRPBase
         disk_space_collector_exclude_filters: new_resource.disk_space_collector_exclude_filters,
         disk_usage_collector_metrics_whitelist: new_resource.disk_usage_collector_metrics_whitelist,
         docker_collector_enabled: new_resource.docker_collector_enabled,
-        docker_collector_metrics_whitelist,
+        docker_collector_metrics_whitelist: new_resource.docker_collector_metrics_whitelist,
         statsd_enabled: new_resource.statsd_enabled,
         statsd_forward: new_resource.statsd_forward,
         statsd_forward_ip: new_resource.statsd_forward_ip,
