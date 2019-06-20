@@ -3,6 +3,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- added `docker_collector_metrics_whitelist`
+
 ## 0.21.0.2-0.21.6
 - no-op testing travis supermarket deploys
 
