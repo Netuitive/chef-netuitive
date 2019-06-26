@@ -2,6 +2,7 @@
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- define `docker_collector_metrics_whitelist` option
 
 ## 0.22.0
 - added `docker_collector_metrics_whitelist`
