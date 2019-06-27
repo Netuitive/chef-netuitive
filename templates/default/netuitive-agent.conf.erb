@@ -174,7 +174,9 @@ metrics_whitelist = (?:^.*\.rx_byte$|^.*\.rx_errors$|^.*\.rx_packets$|^.*\.tx_by
 
 [[NetuitiveDockerCollector]]
 enabled = <%= @docker_collector_enabled ? 'True' : 'False' %>
+<% unless @docker_collector_metrics_whitelist.empty? %>
 metrics_whitelist = <%= @docker_collector_metrics_whitelist %>
+<% end %>
 
 
 ################################################################################
