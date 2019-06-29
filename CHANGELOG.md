@@ -3,11 +3,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+
+## 1.0.0
+- document support for long term maintainability (@majormoses)
+- drop `< 14`chef support (@majormoses)
+- locked `apt` cookbook dependency to ensure `apt_repo` and `apt_preference` are both coming from chef itself rather than the cookbook as this breaks chef 14 clients (@majormoses)
+
 ## 0.22.1
 - fix/define `docker_collector_metrics_whitelist` option
 
 ## 0.22.0
-- added `docker_collector_metrics_whitelist`
+- added `docker_collector_metrics_whitelist` (@rclagett)
 
 ## 0.21.0.2-0.21.6
 - no-op testing travis supermarket deploys

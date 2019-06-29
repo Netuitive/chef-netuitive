@@ -24,26 +24,44 @@ Supported Platforms
 ### Operating Systems
 
 #### Official
-Supported and tested locally with vagrant:
+Tested platforms by travisci:
+- centos 6
+- centos 7
+- ubuntu 16.04
+- ubuntu 18.04
+
+Previously tested locally with vagrant or other at one point:
+- Ubuntu 18.04 LTS
 - Ubuntu 16.04 LTS
 - Ubuntu 14.04 LTS
 - CentOS 6.7+
 - Centos 7.2+
 - Debian 8
 
-Tested platforms by travisci:
-- centos 6
-- centos 7
+
 
 #### Unofficial
 We will attempt to support as many linux distributions as possible and are hoping to expand the above list over time. Any EPEL based system that still supports yum will likely work and we are open to PRs to expands functionality.
 
 ### Chef Versions
+
+The `master` branch is intended to be in line with the latest version of chef and its community based distributions. Whenever a breaking change is required to accomplish this we create a branch named `chef-client/$major_version.x`. Maintainers will only backport into the latest major version to match chefs [EOL Products](https://docs.chef.io/versions.html#end-of-life-eol-products) and their corresponding community distributions. Releases on Github and the Chef Supermarket will only be done from the master branches to support the latest versions of chef. EOL versions will continued to be versioned in their respective branches and can be easily pulled in via [berkshelf](https://docs.chef.io/berkshelf.html) which should support pulling from a branch or from a specific sha1.
+
+#### Chef 14.x
+
+This is currently supported by the master branch.
+
+#### Chef 13.x
+
+We supported chef 13 for quite a while after its EOL but its time has come. Please see `chef-client/13.x` branch for continued usage and head branch for pull request.
+
 #### Chef 12.x
-We support all versions of 12.x (even if we don't test it regularly).
+
+We supported chef 12 for quite a while after its EOL but its time has come. Please see `chef-client/12.x` branch for coninued usage and head branch for pull request.
 
 #### Chef 11.x
-We have written this cookbook using many of the nicer things of chef 12. We are open to community contributions to enable/improve the cookbook to support older versions of chef within reason. If you need chef 11 support in the mean time please see the  `feature/chef-11-compatibility` branch.
+
+This cookbook was originally written using many of the nicer things of chef 12. We are open to community contributions to enable/improve the cookbook to support older versions of chef within reason. If you need chef 11 support see the  `chef-client/11.x` branch.
 
 Using the Netuitive Cookbook
 -----------------------------
